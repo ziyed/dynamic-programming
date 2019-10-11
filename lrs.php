@@ -27,11 +27,12 @@ function solve(Array $list) {
     }
   }
   
-  return strlen($longestSubstring) > 0 ? str_split($longestSubstring) : [];
+  return strlen($longestSubstring) > 0 ? array_unique(str_split($longestSubstring)) : [];
 }
 
 // here are some test-cases that your solution will be tested against, add more
 assert(solve([]) === []);
 assert(solve(['aa', 'a', 'a']) === ['a']);
 assert(solve(['b','r','o','w','n','f','o','x','h','u','n','t','e','r','n','f','o','x','r','y','h','u','n']) === ['n','f','o','x']);
+
 
