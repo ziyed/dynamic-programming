@@ -23,22 +23,9 @@ function solve(Array $list) {
       }      
     }   
 
-    echo "<pre>";print_r($substrings);
-
-    usort($substrings, function($a, $b) {
-      return $a[0] > $b[0];
+    usort($substrings, function($a,$b) {
+       return strcmp(implode('', $a), implode('', $b));
     });
-
-    echo "<pre>";print_r($substrings);
-
-    // $substrings = [
-    //     0 => ['a'],
-    //     1 => ['a','n','a'],
-    //     2 => ['a','n','a','n','a'],
-    //     3 => ['b','a','n','a','n','a'],
-    //     4 => ['n','a'],
-    //     5 => ['n','a','n','a']
-    // ];
 
     $result = [];
 
@@ -70,7 +57,7 @@ function LongestCommonString($a, $b){
 }
 
 
-echo '<pre>'; print_r(solve(['b','a','n','a','n','a']));
+echo '<pre>'; print_r(solve([0, 1, 0, '1', 0, 1, 0, 1]));
 
 
 // here are some test-cases that your solution will be tested against, add more
