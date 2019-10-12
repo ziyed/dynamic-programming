@@ -23,9 +23,22 @@ function solve(Array $list) {
       }      
     }   
 
-    array_multisort($substrings, SORT_ASC);   
-    
     echo "<pre>";print_r($substrings);
+
+    usort($substrings, function($a, $b) {
+      return $a[0] > $b[0];
+    });
+
+    echo "<pre>";print_r($substrings);
+
+    // $substrings = [
+    //     0 => ['a'],
+    //     1 => ['a','n','a'],
+    //     2 => ['a','n','a','n','a'],
+    //     3 => ['b','a','n','a','n','a'],
+    //     4 => ['n','a'],
+    //     5 => ['n','a','n','a']
+    // ];
 
     $result = [];
 

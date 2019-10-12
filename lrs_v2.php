@@ -14,7 +14,7 @@ function LongestRepeatedSubstring($str)
   }
   
   
-
+  echo "<pre>";print_r($substrings);
   
 
   sort($substrings);
