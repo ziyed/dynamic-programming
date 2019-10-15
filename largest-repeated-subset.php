@@ -9,11 +9,24 @@
  * @return array
  */
 function solve(Array $list) {    
+
+    $isDigitExist = false;
     
     for($i = 0; $i < count($list) ; $i++){
       if(is_string($list[$i]) && strlen($list[$i])>1){
         array_splice($list, $i, 1);
       }
+      if(is_numeric($list[$i])){
+        $isDigitExist = true;
+      }
+    }
+
+    if($isDigitExist){
+      for($i = 0; $i < count($list) ; $i++){
+        if(is_string($list[$i])){
+          array_splice($list, $i, 1);
+        }
+      }      
     }
 
     $N = count($list);
@@ -68,6 +81,7 @@ assert(solve([null, null, null, null, null]) === [null, null, null, null]);
 $a = new StdClass();
 assert(solve([$a, $a, $a]) === [$a, $a]);
 assert(solve([[],[], []]) === [[], []]);
+assert(solve([0, 1, 0, '1', 0, 1, 0, 1]) === [0, 1, 0]);
 
 
 
