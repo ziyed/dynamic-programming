@@ -27,7 +27,7 @@ function solve(Array $list) {
     }   
 
     usort($substrings, function($a,$b) {
-        if(is_object($a[0])){
+        if(is_object($a[0])  || is_array($a[0])){
             return $a > $b;  
         }else{
             return strcmp(implode('', $a), implode('', $b));  
@@ -67,6 +67,8 @@ assert(solve(['a', 'b', 'c', 'ab', 'c', 'a', 'b']) === ['a', 'b']);
 assert(solve([null, null, null, null, null]) === [null, null, null, null]);
 $a = new StdClass();
 assert(solve([$a, $a, $a]) === [$a, $a]);
+assert(solve([[],[], []]) === [[], []]);
+
 
 
 
